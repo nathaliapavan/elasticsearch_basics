@@ -1,0 +1,100 @@
+GET /bank/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "sort": [
+    {"account_number": "desc"}
+  ]
+}
+
+
+GET /bank/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "sort": [
+    {"account_number": "asc"}
+  ],
+  "from": 10,
+  "size": 20
+}
+
+GET /bank/_search
+{
+  "query": { "match": { "address": "mill lane" } }
+}
+
+GET /bank/_search
+{
+  "query": { "match_phrase": { "address": "mill lane" } }
+}
+
+
+GET /bank/_search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match": {
+          "age": "40"
+        }
+      },
+      "must_not": {
+        "match": {
+          "state": "ID"
+        }
+      }
+    }
+  }
+}
+
+GET /bank/_search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match": {
+          "age": "40"
+        }
+      },
+      "must_not": {
+        "match": {
+          "gender": "M"
+        }
+      }
+    }
+  }
+}
+
+GET /bank/_search
+{
+ "query": {
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "range": {
+          "balance": {
+            "gte": 20000,
+            "lte": 30000
+          }
+        }
+      }
+    }
+  }
+}
+
+GET /bank/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "firstname": "Amber" } },
+        { "match": { "lastname": "Duke" } }
+      ]
+    }
+  }
+}
