@@ -1,4 +1,4 @@
-# Burger Menu Button > Management > Dev Tools > Console
+# DOC: https://www.elastic.co/guide/en/elasticsearch/reference/current/docs.html
 
 # Updates document _id=1 from index customer (if it does not exist, the document is created)
 PUT /customer/_doc/1
