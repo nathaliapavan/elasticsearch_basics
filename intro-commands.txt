@@ -1,0 +1,19 @@
+# Burger Menu Button > Management > Dev Tools > Console
+
+# Updates document _id=1 from index customer (if it does not exist, the document is created)
+PUT /customer/_doc/1
+{
+  "name": "John Doe"
+}
+
+# Updates document _id=2 from index customer (if it does not exist, the document is created)
+PUT /customer/_doc/2
+{
+  "name": "Nathalia Pavan"
+}
+
+# List document _id=2 from index customer
+GET /customer/_doc/2
+
+# List all index customer documents
+GET /customer/_search
