@@ -1,0 +1,3 @@
+# Presents the mapping of fields to the given index
+
+GET /bank/_mapping
