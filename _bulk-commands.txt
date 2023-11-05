@@ -1,5 +1,7 @@
 curl -H "Content-Type: application/json" -X POST "localhost:9200/bank/_bulk?pretty&refresh" --data-binary "@datasets/accounts.json"
 
+curl -H "Content-Type: application/json" -X POST "localhost:9200/books/_bulk?pretty&refresh" --data-binary "@datasets/books.json"
+
 # DOC: https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html
 
 # -H "Content-Type: application/json": Sets the header to indicate that the request content is of type JSON.

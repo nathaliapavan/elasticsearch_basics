@@ -1,0 +1,56 @@
+# creates new index called books
+PUT /books
+  { "settings": { "number_of_shards": 1 } }
+
+# presents the mapping of the index fields
+GET /books/_mapping
+
+# list all documents from index books
+GET /books/_search
+
+# lists all documents in the index books ordered by release date desc
+GET /books/_search
+{
+  "query": { "match_all": {}},
+  "sort": [
+    {
+      "release_date": "desc"
+    }
+  ]
+}
+
+# lists documents that have Java in the title field
+GET /books/_search
+{
+  "query": { "match": {
+    "title": "Java"
+  }}
+}
+
+GET /books/_search
+{
+  "query": { "match_phrase": {
+    "title": "performance"
+  }}
+}
+
+# search in multiple fields via query param q
+GET /books/_search?q=reference
+
+# search in multiple fields via body params
+GET /books/_search
+{
+  "query": {"multi_match": {
+    "query": "Software",
+    "fields": ["title", "synopsis","tags"]
+  }}
+}
+
+# increases relevance for matches in the tags field
+GET /books/_search
+{
+  "query": {"multi_match": {
+    "query": "books",
+    "fields": ["title", "synopsis","tags^3"]
+  }}
+}
